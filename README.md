@@ -2,11 +2,34 @@
 
 An innovative AI-powered classroom interaction system designed for City University of Hong Kong, addressing four core pain points in university education with real-time speech recognition, intelligent Q&A, and seamless professor-student interaction.
 
+## Problem Statement & Goals
+
+- Reduce passive lectures by enabling governed, fair, and timely interactions
+- Provide bilingual accessibility (EN ⇄ ZH) for inclusive learning
+- Offer live screen sharing plus real-time context aids (subtitles, terms)
+- Simplify attendance and in-lecture practice with minimal friction
+- Preserve a reviewable timeline of the session for post-lecture study
+
+These goals aim to turn “listening-only” into discovery-driven engagement.
+
 ## 🏆 Cloud Studio AI Coding Challenge 2025 Submission
 
 **Track**: Teaching-oriented Practical AI Application  
 **Team**: DEC SmartLink Development Team  
 **University**: City University of Hong Kong
+
+## Why “DEC SmartLink” (Name & Alignment)
+
+- DEC stands for Discovery-enriched Curriculum at CityU. The vision is to transform every course into a discovery opportunity.
+- “SmartLink” emphasizes intelligent linkage among people, content, and context, forming a living knowledge network that supports communication and continuous learning.
+- The app’s governed Q&A and concept scaffolding model reflect DEC’s spirit of discovery, innovation, and knowledge transfer.
+
+## Challenge Fit & Rationale
+
+- Track: Teaching-oriented Practical AI Application
+- Focus: Live transcription/translation, concept scaffolding, governed Q&A, and reviewable timelines
+- Tools: Cloud Studio + Docker; Socket.IO + WebRTC for real-time; Gemini for AI; PostgreSQL for persistence
+- Judging Alignment: Creativity (novel classroom interaction), Technical (real-time + AI), Value (accessibility and engagement), Explanation (clear docs and roadmap)
 
 ## ✨ Core Features
 
@@ -294,7 +317,7 @@ docker compose up -d
 sudo nano /etc/nginx/sites-available/dec-smartlink
 ```
 
-#### 3. 最小 Nginx 配置
+#### 3. Minimal Nginx Config
 ```nginx
 server {
     listen 80;
@@ -325,42 +348,42 @@ server {
 }
 ```
 
-## 🤝 開發指南
+## 🤝 Development Guide
 
-### 📁 專案結構
+### 📁 Project Structure
 ```
 dec-smartlink/
-├── frontend/              # React 前端應用
+├── frontend/              # React app
 │   ├── src/
-│   │   ├── components/    # React 組件
-│   │   ├── hooks/         # 自訂 Hooks
-│   │   ├── utils/         # 工具函數
-│   │   └── types/         # TypeScript 類型
+│   │   ├── components/    # React components
+│   │   ├── hooks/         # Custom hooks
+│   │   ├── utils/         # Utilities
+│   │   └── types/         # TypeScript types
 │   └── public/
-├── backend/               # Node.js 後端服務
+├── backend/               # Node.js backend service
 │   ├── src/
-│   │   ├── routes/        # API 路由
-│   │   ├── services/      # 業務邏輯
-│   │   ├── database/      # 資料庫相關
-│   │   ├── middleware/    # 中間件
-│   │   └── utils/         # 工具函數
+│   │   ├── routes/        # API routes
+│   │   ├── services/      # Business logic
+│   │   ├── database/      # Database
+│   │   ├── middleware/    # Middleware
+│   │   └── utils/         # Utilities
 │   └── dist/              # 編譯輸出
-├── database/              # 資料庫腳本
-├── docker/                # Docker 配置
-└── docs/                  # 文檔
+├── database/              # Database scripts
+├── docker/                # Docker configs
+└── docs/                  # Docs
 ```
 
-### 🔄 開發工作流
-1. 建立功能分支: `git checkout -b feature/new-feature`
-2. 編寫程式碼並提交: `git commit -m "Add new feature"`
-3. 推送到遠端: `git push origin feature/new-feature`
-4. 建立 Pull Request
+### 🔄 Development Workflow
+1. Create feature branch: `git checkout -b feature/new-feature`
+2. Commit changes: `git commit -m "Add new feature"`
+3. Push branch: `git push origin feature/new-feature`
+4. Open Pull Request
 
-### 📝 程式碼規範
-- 使用 TypeScript 進行類型檢查
-- 遵循 ESLint 配置
-- 編寫有意義的提交訊息
-- 添加適當的程式碼註釋
+### 📝 Code Guidelines
+- Use TypeScript for type-safety
+- Follow ESLint configuration
+- Write meaningful commit messages
+- Add concise and helpful comments
 
 ## 🎯 Project Objectives
 
