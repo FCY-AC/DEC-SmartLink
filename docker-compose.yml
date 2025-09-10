@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 資料庫
+  postgres:
+    image: postgres:15
+    container_name: dec-smartlink-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dec_smartlink
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - dec-smartlink-network
+
+  # Redis 快取
+  redis:
+    image: redis:7-alpine
+    container_name: dec-smartlink-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - dec-smartlink-network
+
+  # pgAdmin (可選，用於資料庫管理)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: dec-smartlink-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@dec-smartlink.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - dec-smartlink-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  dec-smartlink-network:
+    driver: bridge
