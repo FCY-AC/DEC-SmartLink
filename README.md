@@ -2,7 +2,7 @@
 
 An innovative AI-powered classroom interaction system designed for City University of Hong Kong, addressing four core pain points in university education with real-time speech recognition, intelligent Q&A, and seamless professor-student interaction.
 
-## 🏆 Cloud Studio AI Coding Challenge 2024 Submission
+## 🏆 Cloud Studio AI Coding Challenge 2025 Submission
 
 **Track**: Teaching-oriented Practical AI Application  
 **Team**: DEC SmartLink Development Team  
@@ -17,7 +17,7 @@ An innovative AI-powered classroom interaction system designed for City Universi
 - **Professor Screen Sharing**: WebRTC-based live screen streaming
 
 ### 🧠 AI-Powered Academic Assistant
-- **Smart Term Explanation**: GPT-4 powered academic vocabulary explanations
+- **Smart Term Explanation**: Google Gemini powered academic vocabulary explanations
 - **Practice Questions**: Auto-generated exercises based on lecture content
 - **Learning Analytics**: Personalized learning progress tracking
 - **Vector Search**: pgvector-powered semantic content search
@@ -55,7 +55,7 @@ An innovative AI-powered classroom interaction system designed for City Universi
   "framework": "Express.js 4.x + Socket.IO 4.x",
   "database": "PostgreSQL 15 + pgvector",
   "cache": "Redis 7",
-  "ai_services": "Azure Speech + GPT-4 + Gemini",
+  "ai_services": "Azure Speech + Google Gemini",
   "authentication": "JWT + bcryptjs"
 }
 ```
@@ -379,26 +379,52 @@ dec-smartlink/
 ## 🌟 Key Achievements
 
 ### ✅ Fully Functional Features
-- **Real-time Speech Recognition**: Azure Speech Services integration
 - **Live Screen Sharing**: WebRTC-based professor screen broadcasting
-- **Interactive Attendance**: Real-time student check-in system
-- **Practice Exercises**: AI-generated in-lecture questions
-- **Recording & Playback**: Automatic lecture capture and storage
+- **Interactive Attendance**: Real-time student check-in system (basic)
+- **Exercise Assignment**: In-lecture exercise UI (basic)
+- **Recording & Upload**: Basic lecture recording upload
 - **Responsive Design**: Modern UI with Tailwind CSS + Ant Design
 
 ### 🔧 Technical Implementation
-- **62 Files**: Complete full-stack application
-- **33,281+ Lines**: Production-ready codebase
+- **62 Files**: Full-stack application scaffold
+- **33,281+ Lines**: Implemented across frontend and backend
 - **TypeScript**: Type-safe development
 - **Docker Ready**: Containerized deployment
 - **Cloud Optimized**: Designed for Cloud Studio deployment
+
+## ⚠️ Current Status & Known Limitations
+
+This hackathon submission is a functional prototype with important gaps due to time constraints:
+
+- Sound-to-text (ASR) is not working end-to-end
+  - Azure Speech wiring exists but runs in mock mode without valid credentials
+  - No stable real-time subtitle broadcasting in production mode yet
+- AI-powered processing is not enabled
+  - Term extraction, explanations, and practice generation depend on ASR output
+  - Google Gemini integration is prepared; flows are currently stubbed for demo
+- Student live viewing reliability requires stabilization
+  - WebRTC signaling implemented; intermittent connectivity observed locally
+- Lecture lifecycle consistency requires refinement
+  - Status transitions (scheduled → ongoing → completed) can desync with UI lists
+- Recording/upload flow is minimal
+  - File is saved locally; cloud storage and access control are pending
+
+For full intent and design scope, see Initial Ideas, UI Design Sketches, and Hackathon planning documents in the `Planning/` directory.
+
+## 🚧 Out-of-Scope in this Submission (from Initial Ideas)
+
+- BLE/Beacon-assisted attendance detection and seat map visualization
+- Classroom 2D seat layout with live student position overlay
+- Knowledge-graph timeline linking slides, questions, and transcripts
+- Automated MCQ generation with rubric-based grading at scale
+- Governance/consent flows and anonymized analytics dashboards
 
 ## 📞 Contact Information
 
 - **Project Team**: DEC SmartLink Development Team
 - **University**: City University of Hong Kong
 - **GitHub Repository**: https://github.com/FCY-AC/DEC-SmartLink
-- **Competition**: Cloud Studio AI Coding Challenge 2024
+- **Competition**: Cloud Studio AI Coding Challenge 2025
 
 ## 📄 License
 
@@ -408,4 +434,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **🎓 DEC SmartLink** - Making Learning Smarter, Making Interaction Real-time!
 
-*Submitted for Cloud Studio AI Coding Challenge 2024 - Teaching-oriented Practical AI Application Track*
+## 🌈 Vision & Expected Outcomes
+
+Grounded in the Initial Ideas, UI Design Sketches, and the Hackathon plan, the project aims to deliver:
+
+- Seamless real-time bilingual subtitles with low latency (<2s)
+- Gemini-powered term explanations tightly coupled to lecture context
+- Governed Q&A windows with fair participation and classroom-friendly moderation
+- Auto attendance with minimal friction, plus actionable engagement insights
+- A timeline that unifies recording, transcript, questions, and exercises for review
+
+We acknowledge this submission is an early milestone. The roadmap prioritizes stabilizing ASR → AI pipelines, tightening WebRTC reliability, and delivering the governed interaction loop envisioned in the design docs.
