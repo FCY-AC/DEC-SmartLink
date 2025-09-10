@@ -31,6 +31,13 @@ These goals aim to turn “listening-only” into discovery-driven engagement.
 - Tools: Cloud Studio + Docker; Socket.IO + WebRTC for real-time; Gemini for AI; PostgreSQL for persistence
 - Judging Alignment: Creativity (novel classroom interaction), Technical (real-time + AI), Value (accessibility and engagement), Explanation (clear docs and roadmap)
 
+## Submission Transparency (Read First)
+
+- Completion status: approximately 20% of the planned MVP
+- Cloud Studio usage: not used in this prototype yet (local Docker used)
+- Primary blockers: end-to-end ASR not working; AI flows depend on ASR output
+- Demo scope: prototype UI flows, basic lecture control, basic recording/upload, basic attendance, WebRTC signaling
+
 ## ✨ Core Features
 
 ### 🎤 Real-Time Speech Recognition & Live Subtitles
@@ -393,27 +400,24 @@ dec-smartlink/
 - **System Performance**: Subtitle latency < 2 seconds
 - **User Retention**: Daily active users > 80%
 
-### 🏆 Competition Highlights
-- ✅ **Innovation**: Addresses real Hong Kong university education challenges
-- ✅ **Technical Excellence**: Advanced AI integration with Cloud Studio GPU
-- ✅ **Practical Impact**: Solves actual classroom pain points
-- ✅ **Scalability**: Modular architecture for institutional deployment
+### 🧭 Evaluation Considerations (Aspirational)
+- We aim to contribute a thoughtful blueprint for practical AI in teaching
+- We prioritize inclusivity (bilingual access) and governed interaction
+- We choose a modular architecture to allow gradual adoption on campus
+- We propose a data-informed loop to improve learning outcomes over time
 
-## 🌟 Key Achievements
+## 🌟 Prototype Snapshot (What Works Now)
 
-### ✅ Fully Functional Features
-- **Live Screen Sharing**: WebRTC-based professor screen broadcasting
-- **Interactive Attendance**: Real-time student check-in system (basic)
-- **Exercise Assignment**: In-lecture exercise UI (basic)
-- **Recording & Upload**: Basic lecture recording upload
-- **Responsive Design**: Modern UI with Tailwind CSS + Ant Design
+- Live screen sharing (WebRTC signaling; local tests only)
+- Basic attendance check (UI + socket events)
+- In-lecture exercise UI (basic submission flow)
+- Recording and upload (local storage endpoint)
+- Responsive UI with Tailwind CSS + Ant Design
 
-### 🔧 Technical Implementation
-- **62 Files**: Full-stack application scaffold
-- **33,281+ Lines**: Implemented across frontend and backend
-- **TypeScript**: Type-safe development
-- **Docker Ready**: Containerized deployment
-- **Cloud Optimized**: Designed for Cloud Studio deployment
+### 🔧 Implementation Notes
+- TypeScript-based full stack scaffold (frontend + backend)
+- Docker Compose for database services (Postgres, Redis)
+- Socket.IO for realtime messaging; WebRTC for screen share
 
 ## ⚠️ Current Status & Known Limitations
 
@@ -457,14 +461,28 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **🎓 DEC SmartLink** - Making Learning Smarter, Making Interaction Real-time!
 
-## 🌈 Vision & Expected Outcomes
+## 🌈 Vision & Expected Outcomes (What We Want to Achieve Next)
 
 Grounded in the Initial Ideas, UI Design Sketches, and the Hackathon plan, the project aims to deliver:
 
-- Seamless real-time bilingual subtitles with low latency (<2s)
-- Gemini-powered term explanations tightly coupled to lecture context
-- Governed Q&A windows with fair participation and classroom-friendly moderation
-- Auto attendance with minimal friction, plus actionable engagement insights
-- A timeline that unifies recording, transcript, questions, and exercises for review
+1) Seamless real-time bilingual subtitles with low latency (<2s)
+   - Unblock ASR (Azure/GCP), stabilize subtitle streaming
+   - Add opt-in translation (EN ⇄ ZH) with per-user preferences
 
-We acknowledge this submission is an early milestone. The roadmap prioritizes stabilizing ASR → AI pipelines, tightening WebRTC reliability, and delivering the governed interaction loop envisioned in the design docs.
+2) Gemini-powered term explanations tightly coupled to lecture context
+   - Lightweight term extraction from transcript
+   - Context-aware explanations with citations and course glossary
+
+3) Governed Q&A with equitable participation
+   - Time-windowed ask-to-speak; moderation, queueing, and seat-map prompts
+   - Anonymous mode with coach prompts that nudge deeper thinking
+
+4) Low-friction attendance + engagement insights
+   - BLE/Wi-Fi proximity (opt-in), late/early indicators
+   - Class-level dashboards for instructors; privacy-first aggregation
+
+5) Reviewable session timeline for post-lecture study
+   - Unify recording, transcript, questions, and exercises
+   - Knowledge graph links across terms, slides, and Q&A
+
+We acknowledge this submission is an early milestone (~20%). The roadmap prioritizes stabilizing ASR → AI pipelines, tightening WebRTC reliability, and delivering the governed interaction loop envisioned in the design docs.
